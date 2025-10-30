@@ -9,9 +9,11 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // Explicitly clean and clone your repo
-                sh 'rm -rf *'
-                sh 'git clone https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git .'
+                echo "Cleaning workspace before checkout..."
+                sh 'rm -rf ./* || true'
+                sh 'rm -rf .[^.]* || true'
+                echo "Cloning latest code from GitHub..."
+                git branch: 'main', url: 'https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git'
             }
         }
 
