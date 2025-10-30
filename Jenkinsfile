@@ -3,19 +3,13 @@ pipeline {
 
     environment {
         IMAGE_NAME = "e-learning-site"
-        DOCKERHUB_USER = "<your-dockerhub-username>"
+        DOCKERHUB_USER = "mahimeh"  // <-- replace this
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                // Clone exactly your repo
-                stage('Checkout Code') {
-                    steps {
-                        git branch: 'main', url: 'https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git'
-                    }
-                }
-
+                git branch: 'main', url: 'https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git'
             }
         }
 
