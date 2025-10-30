@@ -10,7 +10,12 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Clone exactly your repo
-                git 'https://github.com/keerti1924/E-Learning-Website-HTML-CSS.git'
+                stage('Checkout Code') {
+                    steps {
+                        git branch: 'main', url: 'https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git'
+                    }
+                }
+
             }
         }
 
