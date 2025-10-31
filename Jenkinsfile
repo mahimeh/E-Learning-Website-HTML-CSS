@@ -10,8 +10,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "Cleaning workspace before checkout..."
-                sh 'rm -rf ./* || true'
-                sh 'rm -rf .[^.]* || true'
+                deleteDir() // <-- safely clears Jenkins workspace
                 echo "Cloning latest code from GitHub..."
                 git branch: 'main', url: 'https://github.com/mahimeh/E-Learning-Website-HTML-CSS.git'
             }
